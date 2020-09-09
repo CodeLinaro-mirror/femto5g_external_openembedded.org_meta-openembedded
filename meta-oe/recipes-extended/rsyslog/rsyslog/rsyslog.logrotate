@@ -2,8 +2,8 @@
 
 /var/log/syslog
 {
+        size 30M
         rotate 7
-        daily
         missingok
         notifempty
         delaycompress
