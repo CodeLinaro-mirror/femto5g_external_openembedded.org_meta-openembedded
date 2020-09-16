@@ -1,4 +1,4 @@
-inherit autotools qlicense pkgconfig gettext qprebuilt
+inherit autotools qlicense pkgconfig gettext
 
 SUMMARY = "Rsyslog is an enhanced multi-threaded syslogd"
 DESCRIPTION = "\
