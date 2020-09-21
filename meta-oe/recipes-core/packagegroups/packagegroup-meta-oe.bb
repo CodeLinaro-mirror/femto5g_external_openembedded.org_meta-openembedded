@@ -15,13 +15,10 @@ PACKAGES = ' \
     packagegroup-meta-oe-devtools \
     packagegroup-meta-oe-extended \
     packagegroup-meta-oe-kernel \
-    packagegroup-meta-oe-multimedia \
-    packagegroup-meta-oe-navigation \
     packagegroup-meta-oe-security \
     packagegroup-meta-oe-support \
     packagegroup-meta-oe-test \
     ${@bb.utils.contains("DISTRO_FEATURES", "x11", "packagegroup-meta-oe-gnome", "", d)} \
-    ${@bb.utils.contains("DISTRO_FEATURES", "x11", "packagegroup-meta-oe-graphics", "", d)} \
     ${@bb.utils.contains("DISTRO_FEATURES", "ptest", "packagegroup-meta-oe-ptest-packages", "", d)} \
 '
 
@@ -35,13 +32,10 @@ RDEPENDS_packagegroup-meta-oe = "\
     packagegroup-meta-oe-devtools \
     packagegroup-meta-oe-extended \
     packagegroup-meta-oe-kernel \
-    packagegroup-meta-oe-multimedia \
-    packagegroup-meta-oe-navigation \
     packagegroup-meta-oe-security \
     packagegroup-meta-oe-support \
     packagegroup-meta-oe-test \
     ${@bb.utils.contains("DISTRO_FEATURES", "x11", "packagegroup-meta-oe-gnome", "", d)} \
-    ${@bb.utils.contains("DISTRO_FEATURES", "x11", "packagegroup-meta-oe-graphics", "", d)} \
     ${@bb.utils.contains("DISTRO_FEATURES", "ptest", "packagegroup-meta-oe-ptest-packages", "", d)} \
 "
 
@@ -161,25 +155,6 @@ RDEPENDS_packagegroup-meta-oe-gnome ="\
     gtkmm3 pyxdg vte9 \
     "
 
-RDEPENDS_packagegroup-meta-oe-graphics ="\
-    babl cairomm dietsplash directfb directfb-examples dnfdragora \
-    fbgrab fbida fontforge fvwm gegl gimp glm gphoto2 libgphoto2 \
-    gtkperf jasper leptonica libmng libsdl2-image libsdl2-mixer libsdl2-net \
-    libsdl-gfx libsdl-image libsdl-mixer libsdl-net libsdl-ttf \
-    libvncserver libyui libyui-ncurses lxdm numlockx openbox openjpeg \
-    packagegroup-fonts-truetype pangomm qrencode takao-fonts terminus-font \
-    tesseract tesseract-lang tigervnc tslib source-han-sans-cn-fonts \
-    source-han-sans-jp-fonts source-han-sans-kr-fonts source-han-sans-tw-fonts ttf-abyssinica \
-    libvdpau x11vnc xcursorgen xdotool \
-    bdftopcf iceauth sessreg setxkbmap twm xclock xfontsel xgamma xkbevd xkbprint xkbutils \
-    xlsatoms xlsclients xlsfonts xmag xmessage xrdb xrefresh xsetmode xsetroot xstdcmap \
-    xterm xwd xwud xbitmaps xorg-sgml-doctools \
-    font-adobe-100dpi font-adobe-utopia-100dpi \
-    font-bh-100dpi font-bh-lucidatypewriter-100dpi font-bitstream-100dpi font-cursor-misc \
-    font-misc-misc xorg-fonts-100dpi liblbxutil libxaw libxkbui libxpresent xserver-common \
-    ${@bb.utils.contains("DISTRO_FEATURES", "opengl", "freeglut libsdl2-ttf", "", d)} \
-    "
-
 RDEPENDS_packagegroup-meta-oe-kernel ="\
     agent-proxy broadcom-bt-firmware cpupower \
     crash ipmitool minicoredumper oprofile \
@@ -188,24 +163,6 @@ RDEPENDS_packagegroup-meta-oe-kernel_remove_libc-musl = "crash minicoredumper"
 
 RDEPENDS_packagegroup-meta-oe-kernel_remove_mips64 = "crash"
 RDEPENDS_packagegroup-meta-oe-kernel_remove_mips64el = "crash"
-
-RDEPENDS_packagegroup-meta-oe-multimedia ="\
-    alsa-oss audiofile cdrkit id3lib \
-    a2jmidid jack libass libburn libcdio libcdio-paranoia \
-    libdvdread libmms libmodplug libopus live555 \
-    mplayer-common opus-tools \
-    sound-theme-freedesktop v4l-utils yavta wavpack libvpx \
-    ${@bb.utils.contains("DISTRO_FEATURES", "x11", "xpext pavucontrol xsp", "", d)} \
-    libmikmod \
-    ${@bb.utils.contains("LICENSE_FLAGS_WHITELIST", "commercial", "libmad faad2 mpv", "", d)} \
-    "
-RDEPENDS_packagegroup-meta-oe-multimedia_remove_libc-musl = "alsa-oss"
-
-RDEPENDS_packagegroup-meta-oe-navigation ="\
-    geoclue geos libspatialite proj \
-    ${@bb.utils.contains("DISTRO_FEATURES", "x11", "orrery", "", d)} \
-    ${@bb.utils.contains("DISTRO_FEATURES", "bluz4", "gpsd gpsd-machine-conf", "", d)} \
-    "
 
 RDEPENDS_packagegroup-meta-oe-security ="\
     tomoyo-tools \
@@ -238,7 +195,7 @@ RDEPENDS_packagegroup-meta-oe-support ="\
     mailcap mbuffer mg minini \
     multipath-tools nano neon nmon numactl onig openct openldap \
     opensc wbxml2 p910nd pcsc-lite picocom libotr pidgin \
-    pngcheck poco poppler poppler-data portaudio-v19 pps-tools \
+    pngcheck poco poppler poppler-data pps-tools \
     pv pxaregs raptor2 rdfind read-edid rsnapshot s3c24xx-gpio s3c64xx-gpio \
     sjf2410-linux-native satyr sdparm pty-forward-native serial-forward \
     sg3-utils sharutils smem spitools srecord ssiapi stm32flash \

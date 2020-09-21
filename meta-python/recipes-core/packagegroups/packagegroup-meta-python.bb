@@ -30,7 +30,7 @@ RDEPENDS_packagegroup-meta-python = "\
     python-ndg-httpsclient python-pytest python-linecache2 python-visitor python-backports-abc \
     python-setuptools-scm python-evdev python-pyjks python-jsonpointer python-cheetah python-gevent \
     python-smbus python-sqlalchemy python-scrypt python-werkzeug python-anyjson python-pexpect \
-    python-robotframework-seriallibrary python-pyalsaaudio python-pytest-helpers-namespace \
+    python-robotframework-seriallibrary python-pytest-helpers-namespace \
     python-alembic python-flask-pymongo python-slip-dbus python-pydbus python-automat python-rfc3987 \
     python-tzlocal python-backports-ssl python-subprocess32 python-asn1crypto python-pybind11 \
     python-ptyprocess python-babel python-passlib python-sdnotify \
@@ -98,7 +98,7 @@ RDEPENDS_packagegroup-meta-python3 = "\
     python3-grpcio-tools python3-configparser python3-strict-rfc3339 python3-paho-mqtt \
     python3-pytest-helpers-namespace python3-flask python3-flask-wtf python3-visitor python3-pynetlinux \
     python3-requests python3-cryptography-vectors python3-spidev python3-pid python3-pymongo \
-    python3-future python3-django python3-unidiff python3-webencodings python3-can python3-pyalsaaudio \
+    python3-future python3-django python3-unidiff python3-webencodings python3-can \
     python3-flask-sijax python3-cryptography python3-twisted python3-netaddr python3-pycparser \
     python3-flask-uploads python3-pysocks python3-cffi python3-editor python3-ptyprocess \
     python3-pyopenssl python3-ordered-set python3-simplejson python3-py \
