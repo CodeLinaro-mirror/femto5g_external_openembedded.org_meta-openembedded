@@ -42,15 +42,12 @@ SRC_URI = " \
     file://extras/0002-ext4_utils-add-o-argument-to-preserve-ownership.patch;patchdir=system/extras \
     file://libselinux/0001-Remove-bionic-specific-calls.patch;patchdir=external/libselinux \
     file://libselinux/0001-libselinux-Do-not-define-gettid-if-glibc-2.30-is-use.patch;patchdir=external/libselinux \
-    file://android-tools-adbd.service \
-    file://gitignore \
     file://adb.mk;subdir=${BPN} \
     file://adbd.mk;subdir=${BPN} \
     file://ext4_utils.mk;subdir=${BPN} \
     file://fastboot.mk;subdir=${BPN} \
     file://mkbootimg.mk;subdir=${BPN} \
 "
-
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/${BPN}"
@@ -64,21 +61,17 @@ COMPATIBLE_HOST_powerpc64 = "(null)"
 
 inherit systemd
 
-SYSTEMD_SERVICE_${PN} = "android-tools-adbd.service"
-
 # Find libbsd headers during native builds
 CC_append_class-native = " -I${STAGING_INCDIR}"
 CC_append_class-nativesdk = " -I${STAGING_INCDIR}"
 
-TOOLS = "adb fastboot ext4_utils mkbootimg adbd"
+TOOLS = "ext4_utils"
 
 # Adb needs sys/capability.h, which is not available for native*
-TOOLS_class-native = "fastboot ext4_utils mkbootimg"
-TOOLS_class-nativesdk = "fastboot ext4_utils mkbootimg"
+TOOLS_class-native = "ext4_utils"
+TOOLS_class-nativesdk = "ext4_utils"
 
 do_compile() {
-    cp ${WORKDIR}/gitignore ${S}/.gitignore
-
     # Setting both variables below causing our makefiles to not work with
     # implicit make rules
     unset CFLAGS
@@ -125,33 +118,10 @@ do_install() {
         install -m0755 ${B}/ext4_utils/simg2img ${D}${bindir}
         install -m0755 ${B}/ext4_utils/simg2simg ${D}${bindir}
     fi
-
-    if echo ${TOOLS} | grep -q "adb " ; then
-        install -d ${D}${bindir}
-        install -m0755 ${B}/adb/adb ${D}${bindir}
-    fi
-
-    if echo ${TOOLS} | grep -q "adbd" ; then
-        install -d ${D}${bindir}
-        install -m0755 ${B}/adbd/adbd ${D}${bindir}
-    fi
-
-    # Outside the if statement to avoid errors during do_package
-    install -D -p -m0644 ${WORKDIR}/android-tools-adbd.service \
-      ${D}${systemd_unitdir}/system/android-tools-adbd.service
-
-    if echo ${TOOLS} | grep -q "fastboot" ; then
-        install -d ${D}${bindir}
-        install -m0755 ${B}/fastboot/fastboot ${D}${bindir}
-    fi
-
-    if echo ${TOOLS} | grep -q "mkbootimg" ; then
-        install -d ${D}${bindir}
-        install -m0755 ${B}/mkbootimg/mkbootimg ${D}${bindir}
-    fi
 }
 
 PACKAGES += "${PN}-fstools"
+PACKAGE_ARCH ?= "${MACHINE_ARCH}"
 
 RDEPENDS_${BPN} = "${BPN}-conf bash"
 
