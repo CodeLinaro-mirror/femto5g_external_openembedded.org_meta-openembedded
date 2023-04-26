@@ -10,6 +10,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
                     file://COPYING-LGPLv2.1;md5=4fbd65380cdd255951079008b364516c"
 
 SRC_URI = "git://github.com/FRRouting/frr.git;protocol=https;branch=stable/8.2 \
+           file://CVE-2022-37035.patch \
+           file://CVE-2022-37032.patch \
            file://frr.pam \
 	      "
 
@@ -26,7 +28,7 @@ COMPATIBLE_HOST:armv5 = "null"
 # Error: PC-relative reference to a different section
 COMPATIBLE_HOST:mips64 = "null"
 
-inherit autotools python3native pkgconfig useradd systemd
+inherit autotools-brokensep python3native pkgconfig useradd systemd
 
 DEPENDS:class-native = "bison-native elfutils-native"
 DEPENDS:class-target = "bison-native json-c readline c-ares libyang frr-native"
@@ -63,6 +65,8 @@ EXTRA_OECONF:class-target = "--sbindir=${libdir}/frr \
                              --with-clippy=${RECIPE_SYSROOT_NATIVE}/usr/lib/clippy \
                             "
 
+CACHED_CONFIGUREVARS += "ac_cv_path_PERL='/usr/bin/env perl'"
+
 LDFLAGS:append:mips = " -latomic"
 LDFLAGS:append:mipsel = " -latomic"
 LDFLAGS:append:powerpc = " -latomic"
@@ -71,13 +75,18 @@ SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE:${PN} = "frr.service"
 SYSTEMD_AUTO_ENABLE = "disable"
 
+do_compile:prepend () {
+   sed -i -e 's#${RECIPE_SYSROOT_NATIVE}##g' \
+          -e 's#${RECIPE_SYSROOT}##g' ${S}/lib/version.h
+}
+
 do_compile:class-native () {
     oe_runmake clippy-only
 }
 
 do_install:class-native () {
     install -d ${D}${libdir}
-    install -m 755 ${WORKDIR}/build/lib/clippy ${D}${libdir}/clippy
+    install -m 755 ${S}/lib/clippy ${D}${libdir}/clippy
 }
 
 do_install:append:class-target () {
