@@ -12,6 +12,21 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 SRC_URI = "git://github.com/FRRouting/frr.git;protocol=https;branch=stable/8.2 \
            file://CVE-2022-37035.patch \
            file://CVE-2022-37032.patch \
+           file://CVE-2022-42917.patch \
+           file://CVE-2022-36440.patch \
+           file://CVE-2022-40318.patch \
+           file://CVE-2022-43681.patch \
+           file://CVE-2023-31489.patch \
+           file://CVE-2023-31490.patch \
+           file://CVE-2023-38802.patch \
+           file://CVE-2023-41358.patch \
+           file://CVE-2023-41909.patch \
+           file://CVE-2023-38406.patch \
+           file://CVE-2023-38407.patch \
+           file://CVE-2023-46752.patch \
+           file://CVE-2023-46753.patch \
+           file://CVE-2023-47234.patch \
+           file://CVE-2023-47235.patch \
            file://frr.pam \
 	      "
 

@@ -16,6 +16,21 @@ SRC_URI += " \
     file://0003-bison-Remove-line-directives.patch \
     file://0004-lemon-Remove-line-directives.patch \
     file://CVE-2022-3190.patch \
+    file://CVE-2023-2855.patch \
+    file://CVE-2023-2856.patch \
+    file://CVE-2023-2858.patch \
+    file://CVE-2023-2879.patch \
+    file://CVE-2023-2952.patch \
+    file://CVE-2023-0666.patch \
+    file://CVE-2023-0667.patch \
+    file://CVE-2023-0668.patch \
+    file://CVE-2023-2906.patch \
+    file://CVE-2023-1992.patch \
+    file://CVE-2022-4345.patch \
+    file://CVE-2024-0208.patch \
+    file://CVE-2023-4511.patch \
+    file://CVE-2023-6175.patch \
+    file://CVE-2024-2955.patch \
 "
 
 UPSTREAM_CHECK_URI = "https://1.as.dl.wireshark.org/src"
