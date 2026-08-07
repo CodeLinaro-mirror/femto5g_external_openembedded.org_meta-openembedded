@@ -13,7 +13,22 @@ SRC_URI = "git://github.com/FRRouting/frr.git;protocol=https;branch=stable/8.2 \
            file://CVE-2022-37035.patch \
            file://CVE-2022-37032.patch \
            file://CVE-2022-42917.patch \
+           file://CVE-2022-36440.patch \
+           file://CVE-2022-40318.patch \
+           file://CVE-2022-43681.patch \
+           file://CVE-2023-31489.patch \
+           file://CVE-2023-31490.patch \
+           file://CVE-2023-38802.patch \
+           file://CVE-2023-41358.patch \
+           file://CVE-2023-41909.patch \
+           file://CVE-2023-38406.patch \
+           file://CVE-2023-38407.patch \
+           file://CVE-2023-46752.patch \
+           file://CVE-2023-46753.patch \
+           file://CVE-2023-47234.patch \
+           file://CVE-2023-47235.patch \
            file://frr.pam \
+           file://CVE-2024-44070.patch\
 	      "
 
 SRCREV = "79188bf710e92acf42fb5b9b0a2e9593a5ee9b05"

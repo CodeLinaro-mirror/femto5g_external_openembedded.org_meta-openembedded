@@ -22,6 +22,43 @@ SRC_URI = "${SAMBA_MIRROR}/stable/samba-${PV}.tar.gz \
            file://0005-samba-build-dnsserver_common-code.patch \
            file://0001-Fix-pyext_PATTERN-for-cross-compilation.patch \
            file://0001-smbtorture-skip-test-case-tfork_cmd_send.patch \
+           file://CVE-2022-3437-0001.patch;patchdir=source4/heimdal \
+           file://CVE-2022-3437-0002.patch;patchdir=source4/heimdal \
+           file://CVE-2022-3437-0003.patch;patchdir=source4/heimdal \
+           file://CVE-2022-3437-0004.patch;patchdir=source4/heimdal \
+           file://CVE-2022-3437-0005.patch;patchdir=source4/heimdal \
+           file://CVE-2022-3437-0006.patch;patchdir=source4/heimdal \
+           file://CVE-2022-3437-0007.patch;patchdir=source4/heimdal \
+           file://CVE-2022-3437-0008.patch;patchdir=source4/heimdal \
+           file://CVE-2022-45142.patch;patchdir=source4/heimdal \
+           file://CVE-2022-41916.patch;patchdir=source4/heimdal \
+           file://CVE-2021-44758.patch;patchdir=source4/heimdal \
+           file://CVE-2023-34966_0001.patch \
+           file://CVE-2023-34966_0002.patch \
+           file://CVE-2022-2127.patch \
+           file://CVE-2023-34967_0001.patch \
+           file://CVE-2023-34967_0002.patch \
+           file://CVE-2023-34968_0001.patch \
+           file://CVE-2023-34968_0002.patch \
+           file://CVE-2023-34968_0003.patch \
+           file://CVE-2023-34968_0004.patch \
+           file://CVE-2023-34968_0005.patch \
+           file://CVE-2023-34968_0006.patch \
+           file://CVE-2023-34968_0007.patch \
+           file://CVE-2023-34968_0008.patch \
+           file://CVE-2023-34968_0009.patch \
+           file://CVE-2023-34968_0010.patch \
+           file://CVE-2023-34968_0011.patch \
+           file://CVE-2023-4091-0001.patch \
+           file://CVE-2023-4091-0002.patch \
+           file://CVE-2023-42669.patch \
+           file://CVE-2018-14628-0001.patch \
+           file://CVE-2018-14628-0002.patch \
+           file://CVE-2018-14628-0003.patch \
+           file://CVE-2018-14628-0004.patch \
+           file://CVE-2018-14628-0005.patch \
+           file://CVE-2018-14628-0006.patch \
+           file://CVE-2023-0922.patch \
            "
 
 SRC_URI:append:libc-musl = " \
